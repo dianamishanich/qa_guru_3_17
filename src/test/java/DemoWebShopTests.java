@@ -30,13 +30,11 @@ public class DemoWebShopTests {
     @Test
     void addToWishlistAssertTest() {
         Response response = request.extract().response();
-        System.out.println(response.asString());
         assertTrue(response.asString().contains("The product has been added to your"));
     }
 
     @Test
     void addToWishlistBodyAssertTest() {
-        System.out.println(request);
         request.body("success", is(true))
                 .body("message", is("The product has been added to your <a href=\"/wishlist\">wishlist</a>"));
     }
